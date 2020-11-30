@@ -1,0 +1,11 @@
+extends ./layout/index_login.pug
+block login1
+ .principal
+   form.form(action="/login", method="post")
+         h1 BIENVENIDO
+         input.label.email(type="email", name="email", placeholder="Ingresar email")
+         input.label(type="password", name="password" , placeholder="Ingresas contraseña")
+         div.btn_caja
+          input.btn(type="submit", value="Loguear")
+          
+

@@ -1,0 +1,50 @@
+extends ./layout/index.pug
+block contenedor 
+ .centrar
+  .home
+   .add_publicacion
+    form(action="/upload" method="post" enctype="multipart/form-data")
+     
+     input.comentario(type="text" placeholder="que estas pensando" name="comentario")
+     input#file(type="file", name="image")
+     .contenedor_add
+      i(id="icono_ADD" class="fas fa-folder-plus") 
+       span FOTOS
+      input.btn(type="submit", value="Agregar")
+    
+   if(resultado)
+     each result in resultado
+      .publicacion
+       .contenido_publicacion
+        .info_foto
+         .foto_publicacion
+          img(src=`${result.usuario_image}`, alt="")
+          a(href=`/usuario/${result.ID}`)= result.usuario
+          
+          span= ` hace ${format(result.fecha)}`
+         span= result.comentario
+         
+         
+        img(src=`${result.image}`, alt="")
+        .social
+         <i id="like" class="far fa-thumbs-up"></i>
+          span(id="id")= result._id
+          span=`${result.like} likes`
+         <i class="far fa-comments"></i>
+          span Comentarios
+         
+        form(action="/add_comentario", method="post")
+         input(type="text" placeholder="AGREGAR COMENTARIO")
+         input.btn(type="submit", value="enviar")
+            
+  
+  .amigos
+   .contendor_amigos
+    .titulo
+     h3 LISTA DE AMIGOS  
+    .lista_amigos
+     if (amigos)
+      each amigo in amigos
+       .caja_amigo
+        a(href=`/usuario/${amigo.id}`)=amigo.nombre
+        img(src=`${amigo.image}`, alt="") 

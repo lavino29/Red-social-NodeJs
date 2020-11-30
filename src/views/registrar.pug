@@ -1,0 +1,12 @@
+extends ./layout/index_login.pug
+block login1
+     .principal
+       form.form(action="/registrar", method="post")
+         h1 BIENVENIDO
+         input.label.email(type="email", name="email", placeholder="Ingresar email")
+         input.label(type="password", name="password" , placeholder="Ingresas contraseña")
+         input.label(type="text", name="nombre" , placeholder="Ingresar tu nombre")
+         input.label(type="text", name="image" , placeholder="Ingresar tu foto de perfil")
+         div.btn_caja
+          input.btn(type="submit", value="Loguear")
+          

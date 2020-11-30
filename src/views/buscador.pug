@@ -1,0 +1,26 @@
+extends ./layout/index.pug 
+block contenedor 
+  .principal
+     .contenedor_result
+       .solicitud
+         h2 SOLICITUDES DE AMISTAD
+         if(result_amigos)
+          each resultado in result_amigos
+           .add.caja_solicitud
+             span=resultado.nombre
+             .container_solicitud
+              img(src=`${resultado.image}`)
+              a(href=`/aceptar/${resultado.id}`)
+               <i class="fas fa-user-plus"></i>
+              
+
+       .add_padre
+        if(result)
+         h2 RESULTADOS DE LA BUSQUEDA
+         each resultado in result
+           .add
+             span=resultado.nombre
+             img(src=`${resultado.image}`)
+             a(href=`/add/${resultado._id}`)
+              <i class="fas fa-user-plus"></i>
+

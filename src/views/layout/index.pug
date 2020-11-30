@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        <script src="https://kit.fontawesome.com/94ecab35d1.js" crossorigin="anonymous"></script>
+        link(rel="stylesheet", href="css/normalize.css")
+        link(rel="stylesheet", href="css/style.css")
+        
+        title Red-Social
+    body
+     header
+      nav.navegacion
+       ul.ulista
+        li
+         form(action="/buscar", method="post")
+          .buscar
+           input(type="text", name="buscar", placeholder="buscar amigos") 
+           input(type="submit")
+        li 
+         a(href="/") <i class="fas fa-house-user"></i>
+        li
+         a(href="/buscar") <i class="fas fa-address-book"></i>
+        li
+         a(href="/perfil") <i class="fas fa-fire-alt"></i>
+        li.lista <i class="fas fa-bars"></i>
+         .submenu
+          a(href="/logout") SALIR
+          a(href="/config") CONFIGURACION
+         
+  
+     block contenedor
+
+     script(src="js/main.js")
